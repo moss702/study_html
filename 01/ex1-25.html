@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* :required {box-shadow: 0 0 2px 2px darkseagreen;} */
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" name="text" value="가나다라" maxlength="5"><br>
+        password <input type="password" name="pw" required>
+        <hr>
+        검색 <input type="search" name="search"><br>
+        이메일 <input type="email" name="email"><br>
+        전화번호 <input type="tel" name="tel">
+        <hr>
+        컬러선택 <input type="color" name="color"><br>
+        범위선택 <input type="range" name="range" mim="1" max="10" step="2"><br>
+        숫자 <input type="number" name="number" min="10" max="100" step="5">
+        <hr>
+        <input type="submit" name="전송">
+    </form>
+
+    <form>
+        <h3>radio</h3>
+        <p>지역선택</p>
+        <label>서울 <input type="radio" name="area" value="서울" ></label>
+        <label for="kk">경기</label> <input type="radio" name="area" value="경기" id="kk">
+        <label>인천 <input type="radio" name="area" value="인천" checked></label>
+        <hr>
+        <h3>checkbox</h3>
+        <p>피자 토핑</p>
+        <label>모든 토핑<input type="checkbox" name="topping" value="all" id="toppingAll"></label>
+        <label>페퍼로니<input type="checkbox" name="topping" value="pp"></label>
+        <label>포테이토<input type="checkbox" name="topping" value="pt"></label>
+        <label>고구마<input type="checkbox" name="topping" value="sp"></label>
+        <hr>
+        <input type="reset" value="초기화">
+        <input type="button" value="버튼" onclick="alert(prompt('이름을 입력하세요') + '님 환영합니다.')">
+        <input type="image" src="images/bt.png" alt="검색">
+        <hr>
+        <button><img src="images/bt.png" alt="검색"></button>
+        <button>전송</button>
+    </form>
+    <script>
+        const all = document.querySelector("#toppingAll");
+        console.log(all);
+        all.addEventListener("change", e => {
+            // console.log(all.checked)
+            const toppings = document.querySelectorAll("[name='topping']");
+            for(let i = 0; i < toppings.length; i++){
+                toppings[i].checked = all.checked;
+            }
+            // console.log(toppings.length);
+        });
+    </script>
+</body>
+</html>

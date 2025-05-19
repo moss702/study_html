@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('style.css'); 
+        /* import 속성은 style 최상단에 */
+        /* 내부 스타일 시트 */
+        /* 선택자 p {속성이름 : 속성값; 속성이름 : 속성값;} */
+        p {color: blue; text-decoration: underline;}
+        /* 타입선택자(태그선택자) */
+        h1 {color: red;}
+        #title {background-color: beige;}
+        .ctxt {text-decoration: line-through;}
+        .dtxt {font-size: 3em;}
+
+        * {border: 3px solid;}
+
+    </style>
+    <!-- <link href="style.css" rel="stylesheet"> -->
+     
+</head>
+<body>
+    <p>머리가 좋아지는 음식</p>
+    <p style="font-size: 2em;">A : 장어</p>
+    <h1 id="title" class="ctxt">제목</h1>
+    <h1 class="dtxt">제목2</h1>
+    <h2 class="ctxt dtxt">제목3</h2>
+</body>
+</html>
