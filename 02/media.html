@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* h2 {color: red;}
+        @media print {
+            h2 {color: blue;}
+        } */
+        * {margin: 0; padding: 0; font-family: '맑은 고딕'; color: #eee;}
+        a {text-decoration: none; color: #eee;}
+        body {background-color: #444;}
+        ul li {list-style: none;}
+        .clearfix::after {content: ''; display: block; clear: both;}
+        header, footer {background: #222; color: #eee; text-align: center; padding: 30px;}
+        header {background: url('https://cdn.snunews.com/news/photo/201609/16240_9455_4715.jpg') 
+            center right; background-size: cover;}
+        header h1 {text-shadow: 0 0 20px black;}
+
+        nav, aside {background: #444;}
+        .content {background: #666;}
+        nav, aside, .content {padding: 16px 0; min-height: 200px;}
+        nav {padding: 0; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;}
+        nav li a {display: block; text-align: center; background-color: #333; padding: 16px;}
+        nav li:not(:first-child) a {border-top: 1px solid #ddd;}
+
+        .card {
+            width: 320px; margin: 0 auto; margin-bottom: 16px; background-color: #333;
+            box-shadow: 0 0 0 1px #e3e5e8; border-radius: 8px;
+            overflow: hidden;
+            /* padding: 10px; */
+        }
+        .card img {width: 100%;}
+        .card h3 {margin: 16px;}
+        .card p {text-align: right; padding: 16px; font-size: 13px;}
+
+        /* 태블릿 반응형 */
+        @media screen and (min-width : 768px) {
+            nav, .content {float: left;}
+            nav {width: 192px;}
+            .content {width: 576px;}
+            aside {clear: both;}
+            .tab-cls {width: 768px; margin: 0 auto;}
+            .card {width: 264px; float: left; margin-left: 16px;}
+        }
+        /* PC 반응형 */
+        @media screen and (min-width : 1200px) {
+            .tab-cls {float: left; width: 900px;}
+            main {width: 1200px; margin: 0 auto;}
+            .content {width: 708px;}
+            aside {float: left; clear: none; width: 300px;}
+        }
+    </style>
+</head>
+<body>
+    <!-- <h2>텍스트 테스트</h2> -->
+     <header>
+        <h1>더조은 반응형 디자인</h1>
+     </header>
+     <main class="clearfix">
+        <div class="tab-cls">
+            <nav>
+                <ul>
+                    <li><a href="#">메뉴1</a></li>
+                    <li><a href="#">메뉴2</a></li>
+                    <li><a href="#">메뉴3</a></li>
+                    <li><a href="#">메뉴4</a></li>
+                </ul>
+            </nav>
+            <div class="content">
+                <div class="card">
+                    <a href="#">
+                        <img src="https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/vendor_inventory/9c1d/63a84a82d3c2c9bf82bdcd5cceb47c5b76e1bc4d532f391b93cefffd318d.jpg">
+                        <h3>맛있는 찰옥수수</h3>
+                        <p>보러가기&gt;</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="#">
+                        <img src="https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/vendor_inventory/9c1d/63a84a82d3c2c9bf82bdcd5cceb47c5b76e1bc4d532f391b93cefffd318d.jpg">
+                        <h3>맛있는 찰옥수수</h3>
+                        <p>보러가기&gt;</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="#">
+                        <img src="https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/vendor_inventory/9c1d/63a84a82d3c2c9bf82bdcd5cceb47c5b76e1bc4d532f391b93cefffd318d.jpg">
+                        <h3>맛있는 찰옥수수</h3>
+                        <p>보러가기&gt;</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <aside>사이드바
+            
+        </aside>
+     </main>
+     <footer>
+        <p>copyright &copy; all right reserved.</p>
+     </footer>
+</body>
+</html>
