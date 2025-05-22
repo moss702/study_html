@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes sample{
+            0% {background: firebrick; transform: translate(0,0);}
+            50% {background: cornflowerblue; transform: translate(30px,20px);}
+            100% {background: forestgreen; transform: translate(0,0);}
+        }
+        /* p{
+            width: 100px; height: 100px;
+            padding: 10px;
+            animation: sample 4s forwards;
+            animation-iteration-count: 3;
+            /* 애니메이션 특정 횟수 반복 *기본값이 1 */
+            /* animation-direction: alternate;} */
+            /* 정방향 1 > 역방향 1 > ... */
+        
+        
+        
+        @keyframes hos {
+            /* 0% {transform: rotate(0deg);}
+            50% {transform: rotate(180deg);}
+            100% {transform: rotate(360deg);} */
+
+            from {transform: rotateZ(0deg);}
+            /* 기본이 0이라서 from을 쓰지 않아도 된다. */
+            to {transform: rotateZ(360deg);}
+        }
+        img {animation: hos 1s linear infinite;}
+
+    </style>
+</head>
+<body>
+    <!-- <p>Animation</p> -->
+    <img src="img/hos.webp">
+</body>
+</html>

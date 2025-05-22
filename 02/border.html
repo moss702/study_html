@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {background: black; max-width: 300px; padding: 50px;
+             margin: auto 0; color: white;
+             position: relative; margin-bottom: 50px; border-radius: 20px;
+        }
+        .main::after {
+            display: block; content: ''; max-width: 300px; position: absolute;
+            bottom: -45px; left: 130px;
+            transform: skew(-30deg);
+            border: 15px solid transparent; width: 0; border-top: 30px solid black; margin: 0 auto;
+        }
+        .main.me::after {
+            left:250px;
+            transform: skew(30deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="main"> 상대가 말한 구간</div>
+    <div class="main me"> 내가 말한 구간</div>
+</body>
+</html>

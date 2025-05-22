@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {margin: 20px;}
+        div {
+            width: 600px; height: 100px; margin-bottom: 20px; border: 10px solid transparent;
+        }
+        /* div {
+            border-image-source: url(img/border.png);
+            border-image-width: 27;
+        } */
+        .round {border-image: url(img/border.png) 27 round;}
+        .repeat {border-image: url(img/border.png) 27 repeat}
+        .stretch {border-image: url(img/border.png) 27 stretch}
+    </style>
+</head>
+<body>
+    <div class="round"></div>
+    <div class="repeat"></div>
+    <div class="stretch"></div>
+</body>
+</html>

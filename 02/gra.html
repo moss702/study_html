@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {width: 300px; height: 200px; margin: 0 auto;}
+        /* linearGradient([방향], color stop1, color stop2. . .) */
+        /* direction : 문자(기본 바텀), 각도(deg) */
+        .box1 {background-image: linear-gradient(to right, white, black);}
+        .box2 {background-image: linear-gradient(45deg, white, #f008);}
+        .box3 {background-image: linear-gradient(45deg, white 50%, #f008);}
+        .box4 {background-image: linear-gradient(
+            90deg,
+            red 0, red 20px,
+            orange 20px, orange 40px, 
+            yellow 40px, yellow 60px,
+            green 60px, green 80px, 
+            blue 80px, blue 100px, 
+            navy 100px, navy 120px, 
+            purple 120px, purple 140px
+        );}
+        .box5 {background-image: repeating-linear-gradient(
+            90deg,
+            red 0, red 20px,
+            orange 20px, orange 40px, 
+            yellow 40px, yellow 60px,
+            green 60px, green 80px, 
+            blue 80px, blue 100px, 
+            navy 100px, navy 120px, 
+            purple 120px, purple 140px
+        );}
+
+        /* color stop 크기 지정가능 */
+
+    </style>
+</head>
+<body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+    <div class="box box5"></div>
+</body>
+</html>
