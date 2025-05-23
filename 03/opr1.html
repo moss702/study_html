@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //숫자 2개를 입력받아 합계를 alert()로 표현
+        var num1 = Number(prompt('첫번째 숫자를 입력',10));
+        var num2 = prompt('두번째 숫자를 입력',10) -0; 
+        // num1 = Number(num1);
+        // num2 = Number(num2);
+        var sum = num1 + num2;
+        alert('두 수의 합은 '+ sum); 
+
+        var num3 = num1 > num2 ? num1 : num2;
+        alert('두 수중 더 큰 수는 ' + num3);
+        
+        var num = 10;
+        // var ret = Boolean(num) //0이 아닌 숫자라서 T
+        var ret = !!num; //!num : F , !!num : T
+
+        for( var i = 10 ; i-- ; ){
+            //조건식이 필요없다. 딱 10번 작동. 0이 되면 F가 되니까.
+        }
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

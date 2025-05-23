@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cha {background: url(img/7597e18ccdac3f7e5e7d8a4b90107c49.png) no-repeat;
+            background-size: 256px;
+            background-position: 0 0;
+            position: absolute;
+            top:0; left: 0;
+            width: 64px;
+            height: 96px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="cha"></div>
+    
+    <script> //js로 작업할때는 꼭 console.log()로 디버깅할것
+        window.addEventListener("keydown", function(e) {
+            // console.log($(".cha").css("backgroundPositionX"))
+            // console.log(e.keyCode);
+            function rotateX(){
+                var x = $(".cha").css("backgroundPositionX")
+                $(".cha").css("backgroundPositionX", (parseInt(x) - 64) % 256)
+            }
+            switch(e.keyCode){
+                case 87: case 38:
+                    console.log('T');
+                    $(".cha").css("top", $(".cha").position().top - 10)
+                    rotateX();
+                    $(".cha").css("backgroundPositionY","-288px")
+                    break;
+                case 68: case 39:
+                    console.log('R');
+                    $(".cha").css("left", $(".cha").position().left + 10)
+                    rotateX();
+                    $(".cha").css("backgroundPositionY","-192px")
+                    break;
+                case 83: case 40:
+                    console.log('B');
+                    $(".cha").css("top", $(".cha").position().top + 10)
+                    rotateX();
+                    $(".cha").css("backgroundPositionY","0px")
+                    break;
+                case 65: case 37:
+                    console.log('L');
+                    $(".cha").css("left", $(".cha").position().left - 10)
+                    rotateX();
+                    $(".cha").css("backgroundPositionY","-96px")
+                    break;
+            }
+        })
+    </script>
+</body>
+</html>

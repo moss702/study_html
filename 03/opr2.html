@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var value = prompt('값을 입력하세요') || '기본값'
+        console.log(value);
+        console.log('가' && 3);
+        console.log('가' || 3 || 2 || 1); //0이나 ''도 거짓 취급
+        console.log('가' ?? 3 ?? 2 ?? 1); //Nullish coalescing operator : 진짜 null만 거짓취급
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
