@@ -3,11 +3,61 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>IKKIKKI.LETSUGI</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <style>
+        body {background-color: #eaeef3;}
+        a {text-decoration: none; color: #1e1e23;}
+
+        .nav {margin: 20px 20px 70px 20px; display: flex; flex-direction: row; align-items: center; justify-content: space-between;}
+        .nav::after {content: ""; display: block; position: absolute;}
+        .nav > a {background-size: 463px 442px; width: 32px; height: 32px; background-position: -311px -166px;
+            display: inline-block; justify-content: flex-start; flex-direction: row; margin: 10px;
+            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+        }
+        .nav > a:nth-child(2) { background-position: -248px -260px; }
+        .nav > a:nth-child(3) { background-position: -99px -316px; }
+        .nav > a:nth-child(4) { background-position: -311px -232px; }
+        .nav > a:nth-child(5) { background-position: -33px -316px; }
+        
+        /* 검색창 class="search" */
+        .search {position: relative; height: 54px; padding: 1px; border-radius: 27px;
+            background: linear-gradient(135deg,#03cf5d 0,#03c75a 100%); box-shadow: 0 5px 10px 0 rgba(117,145,181,.12);
+            display: flex; align-items: center; padding-left: 10px;
+        }
+        .search::after {
+            content: ""; display: block; position: absolute; -webkit-border-radius: 29px;
+            top: 1px; right: 1px; bottom: 1px; left: 1px; border-radius: 29px;
+            background-color: #fff; z-index: 0;
+        }
+        .search a::before {content: ""; display: block;}
+        .search a { background-size: 323px 185px; background-position: -270px -145px;
+            width: 40px; height: 40px; display: block;
+            background-image: url(https://s.pstatic.net/static/www/m-new/uit/img/sp_main_search_df8ba29e.png);
+        }  
+        .search span { display: block; position: relative; width: 40px; height: 40px; 
+            background-color: #03cf5d; z-index: 1;}
+        form {padding-left: 10px; flex: .95;}
+        form input {border: none; outline: none; width: 100%; padding: 0 10px; background: transparent;}
+        #search_script {display: block; position: relative; padding: 15px 0; box-sizing: border-box; 
+            font-size: 18px; font-weight: 700; line-height: 22px; color: #1e1e23; z-index: 1;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World</h1>
-    <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIGmcVezVN7l8idgVvLUiRNnfLdnFXAvRzpw&s">
+    <div class="nav">
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+    </div>
+    <div class="search">
+        <span><a href="#"></a></span>
+        <form action="https://m.search.naver.com/search.naver";>
+        <input id="search_script" type="text" placeholder="검색어를 입력해주세요">
+        </div>
+    </div>
 </body>
 </html>

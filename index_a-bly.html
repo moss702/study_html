@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+
+    <style>
+        body {display: block; overflow: hidden; padding: 0px; margin: 0 auto; width: 600px; box-sizing: border-box;}
+        a {color: black; text-decoration: none;}
+
+        /* 헤더 */
+        .top {display: flex; align-items: center; justify-content: space-between; 
+            background: rgb(255, 81, 96); width: 100%; height: 60px; padding: 12px 10px;
+            box-sizing: border-box;
+        }
+        .top div:first-child {width: 36px; height: 36px;}
+        .left {display: flex; align-items: center;  flex-grow: 1; gap: 10px;}
+        .left p {color: azure; font-size: 13px; margin: 0;}
+        .right {display: flex; align-items: center; flex-shrink: 0; align-content: center; justify-content: right;}
+        .right a {color: black; font-size: 10px; text-align: center; display: inline-block; line-height: 28px;
+            width: 70px; height: 28px; background-color: white; border: 1px solid gray; border-radius: 20px;
+        }
+
+        /* 검색창 */
+        .second {height: 60px; position: relative; display: flex; flex-direction: row;}
+        .serch {background-color: rgb(238, 238, 238); padding: 0 10px; width:calc(100% - 62px); height: 38px; border-radius: 8px;
+            margin: 10px 56px 20px 16px; align-items: center; box-sizing: border-box; display: flex;
+        }
+        .second input {border: none; outline: none; width: 100%; padding: 0 10px; background: transparent;}
+
+        /* 스와이프 슬라이더 */
+        .slider {width: 600px;}
+
+        /* 카테고리 */
+        .category {padding: 4px 10px 0 10px; gap:8px; display: grid; grid-auto-flow: column; grid-template-rows: 1fr 1fr; place-items: center;}
+        .category img {width: 34px; align-self: center; margin: 3px 0 3px 0;}
+        .category a {font-size: 10px; text-align: center; width: 70px; padding: 4px 0 0; flex-grow: 1; flex-direction: column; display: flex;}
+
+        /* 스폰서 */
+        .spons {display: flex; justify-content: space-between; margin: 0 10px 10px 10px;}
+        .spons p:first-of-type {font-size: 18px; letter-spacing: -.5px; font-weight: bold; color: black; text-decoration:double;}
+        .spons p + p {font-size: 14px; letter-spacing: -.7px; color: #dddddd;}
+        .product {position: relative; width: 100%; border-radius: 4px; overflow: hidden; padding-bottom: 120%; margin-bottom: 4px;}
+        
+   </style>
+
+</head>
+<body>
+    <div class="top">
+        <div class="left">
+            <div>ably</div>
+            <p>앱에서 더 많은 상품을 볼 수 있어요!</p><span></span>
+        </div>
+        <div class="right">
+            <a href="#">앱에서 보기</a>
+        </div>
+    </div>
+    <div class="second">
+        <div class="serch">
+            <img src="">
+            <input type="text" placeholder="하나만 사도 무료배송">
+            <a href="#"></a>
+        </div>
+    </div>
+    <div class="slider">
+        <img src="https://d3ha2047wt6x28.cloudfront.net/mwLMUO3yEk4/pr:RECTANGLE_BANNER/czM6Ly9pbWcuYS1ibHkuY29tL2Jhbm5lci9pbWFnZXMvYmFubmVyX2ltYWdlXzE3NDczNjc2MjMyNzUyMjkucG5n">
+        <img src="https://d3ha2047wt6x28.cloudfront.net/z-rLcHNYHMY/pr:RECTANGLE_BANNER/czM6Ly9pbWcuYS1ibHkuY29tL2Jhbm5lci9pbWFnZXMvYmFubmVyX2ltYWdlXzE3NDc2NDIzNDM5NDM3MDkucG5n">
+        <img src="https://d3ha2047wt6x28.cloudfront.net/TC-3m4S9Byc/pr:RECTANGLE_BANNER/czM6Ly9pbWcuYS1ibHkuY29tL2Jhbm5lci9pbWFnZXMvYmFubmVyX2ltYWdlXzE3NDc4MjA2Njk1NTE4NzMucG5n">
+    </div>
+    <div class="category">
+        <div>
+            <a href="#">
+            <img src="https://img.a-bly.com/shortcut/shortcut_image_1676511639199031.png">
+            남자패션</a>
+        </div>
+        <div>
+            <a href="#">
+            <img src="https://img.a-bly.com/shortcuts/icon_category_shoes.png">
+            신발</a>
+        </div>
+        <div>
+            <a href="#">
+            <img src="https://img.a-bly.com/shortcuts/icon_category_top.png">
+            의류</a>
+        </div>
+        <div>
+            <a href="#">
+            <img src="https://img.a-bly.com/shortcuts/icon_category_phone.png">
+            디지털/핸드폰</a>
+        </div>
+        <div>
+            <a href="#">
+            <img src="https://img.a-bly.com/shortcuts/icon_category_jewelry.png">
+            주얼리</a>
+        </div>
+        <div>
+            <a href="#">
+            <img src="https://img.a-bly.com/shortcuts/icon_category_bag.png">
+            가방</a>
+        </div>
+        <div>
+            <a href="#">
+            <img src="https://img.a-bly.com/shortcuts/icon_category_accessory.png">
+            패션소품</a>
+        </div>
+        <div>
+            <a href="#">
+            <img src="https://img.a-bly.com/shortcut/shortcut_image_1644228120710012.png">
+            뷰티</a>
+        </div>
+        <div>
+            <a href="#">
+            <img src="https://img.a-bly.com/shortcuts/icon_category_bigsize.png">
+            빅사이즈</a>
+        </div>
+        <div>
+            <a href="#">
+            <img src="https://img.a-bly.com/shortcut/shortcut_image_1747908118295539.png">
+            라이프</a>
+        </div>
+    </div>
+    <hr style="border-width:1px 0 0 0; border-style:solid; border-color:#bbb; margin-top: 12px;">
+    <div class="spons">
+        <p>회원님을 위한 추천 상품</p>
+        <p>sponsored</p>
+    </div>
+    <div>
+        <div class="product"><a href="#"><img src="https://d3ha2047wt6x28.cloudfront.net/bP2BQ_7STPI/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzdkZjhiZmE2MDg1MmUzZGI0YTRlNWU0MDY1NDZjMzhmLmdpZg"></a></div>
+        <div>
+            <p class="sale per">38%</p>
+            <p class="sale price">17,900</p>
+        </div>
+        <p>뮤즈핏</p>
+        <p>-5도 쿨핏ㅇ여름버전ㅇ사이드핀턱</p>
+        
+    </div>
+
+    <script>
+        $(".slider").bxSlider({
+            auto:true,
+            mode:'horizontal'
+        });
+    </script>
+</body>
+</html>
