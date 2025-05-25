@@ -10,28 +10,39 @@
     <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
 
     <style>
-        body {display: block; overflow: hidden; padding: 0px; margin: 0 auto; width: 600px; box-sizing: border-box;}
+        body {display: block; padding: 0px; margin: 0 auto; height: 100%; width: 600px; min-height: 100%; box-sizing: border-box;}
         a {color: black; text-decoration: none;}
+        header {z-index: 2; align-items: center; box-sizing: border-box; margin: 0 auto; display: block; 
+            position: sticky; top: 0; left: 0;}
+        footer {position: sticky; bottom: -80px; left: 0; z-index: 2; height: 80px; transform: translateY(-100%); 
+            background-color: white; width: 100%;}
+        main {display: block;}
 
         /* 헤더 */
         .top {display: flex; align-items: center; justify-content: space-between; 
-            background: rgb(255, 81, 96); width: 100%; height: 60px; padding: 12px 10px;
+            background: rgb(255, 81, 96); width: 100%; padding: 12px 10px;
             box-sizing: border-box;
         }
-        .top div:first-child {width: 36px; height: 36px;}
+        .left div:first-child {width: 36px; height: 36px; border: 1px solid white; border-radius: 25%; background-color: white;
+            font-size: 10px; text-align: center; line-height: 35px; letter-spacing: 2px; 
+        }
         .left {display: flex; align-items: center;  flex-grow: 1; gap: 10px;}
         .left p {color: azure; font-size: 13px; margin: 0;}
         .right {display: flex; align-items: center; flex-shrink: 0; align-content: center; justify-content: right;}
-        .right a {color: black; font-size: 10px; text-align: center; display: inline-block; line-height: 28px;
-            width: 70px; height: 28px; background-color: white; border: 1px solid gray; border-radius: 20px;
+        .right a {display: inline-block; color: black; font-size: 10px; text-align: center; line-height: 30px; letter-spacing: -1px;  
+            width: 70px; height: 30px; background-color: white; border: 1px solid rgb(192, 192, 192); border-radius: 20px;
         }
 
-        /* 검색창 */
-        .second {height: 60px; position: relative; display: flex; flex-direction: row;}
+        /* 장바구니, 검색창 */
+        .second {background-color: white; height: 60px; position: relative; display: flex; flex-direction: row;}
+        .second a {width: 20px; height: 20px; margin: 20px; align-items: center; box-sizing: border-box; display: flex; flex-grow: 1;}
+        .second a > i {width: 30px; height: 30px; color: #505050; font-size: 25px;}
+        .second a > i:hover {color: rgb(255, 81, 96);}
         .serch {background-color: rgb(238, 238, 238); padding: 0 10px; width:calc(100% - 62px); height: 38px; border-radius: 8px;
-            margin: 10px 56px 20px 16px; align-items: center; box-sizing: border-box; display: flex;
+            margin: 10px 1px 20px 16px; align-items: center; box-sizing: border-box; display: flex; justify-items: left; flex-grow: 1;
         }
-        .second input {border: none; outline: none; width: 100%; padding: 0 10px; background: transparent;}
+        .serch i {width: 20px; height: 20px; padding: 3px 0 0 5px; color: #a3a3a3;}
+        .serch input {border: none; outline: none; width: 100%; padding: 0 10px; background: transparent;}
 
         /* 스와이프 슬라이더 */
         .slider {width: 600px;}
@@ -42,104 +53,179 @@
         .category a {font-size: 10px; text-align: center; width: 70px; padding: 4px 0 0; flex-grow: 1; flex-direction: column; display: flex;}
 
         /* 스폰서 */
-        .spons {display: flex; justify-content: space-between; margin: 0 10px 10px 10px;}
-        .spons p:first-of-type {font-size: 18px; letter-spacing: -.5px; font-weight: bold; color: black; text-decoration:double;}
+        .spons {display: flex; justify-content: space-between; margin: 0 10px 0px 10px;}
+        .spons p:first-of-type {font-size: 18px; letter-spacing: -.5px; font-weight: bold; color: black; text-decoration:double; margin: 10px 0 0 0px;}
         .spons p + p {font-size: 14px; letter-spacing: -.7px; color: #dddddd;}
         .product {position: relative; width: 100%; border-radius: 4px; overflow: hidden; padding-bottom: 120%; margin-bottom: 4px;}
-        
+
+        /* 네비 */
+        .nav {display: flex; align-items: center; justify-content: space-between; width: 90%;
+            padding: 10px 30px; box-sizing: border-box; background-color: white; margin: 0 auto;}
+        .nav a {font-size: 11px; text-align: center;}
+        .nav i {font-size: 20px; display: block; padding-bottom: 5px;}
+        .nav a:hover {color: rgb(255, 81, 96);}
+
+        /* 상품 */
+        .products {display: inline-block;}
+        .price p {display: inline-block; font-size: 16px; line-height: 20px; letter-spacing: -.4px; color: rgb(255, 81, 96); font-weight: bold; margin: 0 auto; padding: 0 0 3px 0;}
+        .price p + p {color: #505050;}
+        .products > div {display: inline-block; margin: 10px 3px 10px;}
+        .products img {height: 225px;}
+        .products > div > p {display: block; margin: 0 auto; padding: 1px; font-size: 12px; letter-spacing: -.2px; line-height: 16px; font-weight: bold; color: #505050;}
+        .products > div > p + p {display: block; margin: 0 auto; font-size: 12px; letter-spacing: -.2px; line-height: 16px;}
+        .products > div > p + p + p {display: block; margin: 0 auto; font-size: 11px; letter-spacing: -.2px; line-height: 14px; margin-top: 6px; color: #bbb;}
+
+
    </style>
 
 </head>
 <body>
-    <div class="top">
-        <div class="left">
-            <div>ably</div>
-            <p>앱에서 더 많은 상품을 볼 수 있어요!</p><span></span>
+    <header>
+        <div class="top">
+            <div class="left">
+                <div><b>ABLY</b></div>
+                <p>앱에서 더 많은 상품을 볼 수 있어요!</p><span></span>
+            </div>
+            <div class="right">
+                <a href="#">앱에서 보기</a>
+            </div>
         </div>
-        <div class="right">
-            <a href="#">앱에서 보기</a>
+        <div class="second">
+            <div class="serch">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="하나만 사도 무료배송">
+            </div>
+            <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
         </div>
-    </div>
-    <div class="second">
-        <div class="serch">
-            <img src="">
-            <input type="text" placeholder="하나만 사도 무료배송">
-            <a href="#"></a>
+    </header>
+    <main>
+        <div class="slider">
+            <img src="https://d3ha2047wt6x28.cloudfront.net/mwLMUO3yEk4/pr:RECTANGLE_BANNER/czM6Ly9pbWcuYS1ibHkuY29tL2Jhbm5lci9pbWFnZXMvYmFubmVyX2ltYWdlXzE3NDczNjc2MjMyNzUyMjkucG5n">
+            <img src="https://d3ha2047wt6x28.cloudfront.net/z-rLcHNYHMY/pr:RECTANGLE_BANNER/czM6Ly9pbWcuYS1ibHkuY29tL2Jhbm5lci9pbWFnZXMvYmFubmVyX2ltYWdlXzE3NDc2NDIzNDM5NDM3MDkucG5n">
+            <img src="https://d3ha2047wt6x28.cloudfront.net/TC-3m4S9Byc/pr:RECTANGLE_BANNER/czM6Ly9pbWcuYS1ibHkuY29tL2Jhbm5lci9pbWFnZXMvYmFubmVyX2ltYWdlXzE3NDc4MjA2Njk1NTE4NzMucG5n">
         </div>
-    </div>
-    <div class="slider">
-        <img src="https://d3ha2047wt6x28.cloudfront.net/mwLMUO3yEk4/pr:RECTANGLE_BANNER/czM6Ly9pbWcuYS1ibHkuY29tL2Jhbm5lci9pbWFnZXMvYmFubmVyX2ltYWdlXzE3NDczNjc2MjMyNzUyMjkucG5n">
-        <img src="https://d3ha2047wt6x28.cloudfront.net/z-rLcHNYHMY/pr:RECTANGLE_BANNER/czM6Ly9pbWcuYS1ibHkuY29tL2Jhbm5lci9pbWFnZXMvYmFubmVyX2ltYWdlXzE3NDc2NDIzNDM5NDM3MDkucG5n">
-        <img src="https://d3ha2047wt6x28.cloudfront.net/TC-3m4S9Byc/pr:RECTANGLE_BANNER/czM6Ly9pbWcuYS1ibHkuY29tL2Jhbm5lci9pbWFnZXMvYmFubmVyX2ltYWdlXzE3NDc4MjA2Njk1NTE4NzMucG5n">
-    </div>
-    <div class="category">
-        <div>
-            <a href="#">
-            <img src="https://img.a-bly.com/shortcut/shortcut_image_1676511639199031.png">
-            남자패션</a>
+        <div class="category">
+            <div>
+                <a href="#">
+                <img src="https://img.a-bly.com/shortcut/shortcut_image_1676511639199031.png">
+                남자패션</a>
+            </div>
+            <div>
+                <a href="#">
+                <img src="https://img.a-bly.com/shortcuts/icon_category_shoes.png">
+                신발</a>
+            </div>
+            <div>
+                <a href="#">
+                <img src="https://img.a-bly.com/shortcuts/icon_category_top.png">
+                의류</a>
+            </div>
+            <div>
+                <a href="#">
+                <img src="https://img.a-bly.com/shortcuts/icon_category_phone.png">
+                디지털/핸드폰</a>
+            </div>
+            <div>
+                <a href="#">
+                <img src="https://img.a-bly.com/shortcuts/icon_category_jewelry.png">
+                주얼리</a>
+            </div>
+            <div>
+                <a href="#">
+                <img src="https://img.a-bly.com/shortcuts/icon_category_bag.png">
+                가방</a>
+            </div>
+            <div>
+                <a href="#">
+                <img src="https://img.a-bly.com/shortcuts/icon_category_accessory.png">
+                패션소품</a>
+            </div>
+            <div>
+                <a href="#">
+                <img src="https://img.a-bly.com/shortcut/shortcut_image_1644228120710012.png">
+                뷰티</a>
+            </div>
+            <div>
+                <a href="#">
+                <img src="https://img.a-bly.com/shortcuts/icon_category_bigsize.png">
+                빅사이즈</a>
+            </div>
+            <div>
+                <a href="#">
+                <img src="https://img.a-bly.com/shortcut/shortcut_image_1747908118295539.png">
+                라이프</a>
+            </div>
         </div>
-        <div>
-            <a href="#">
-            <img src="https://img.a-bly.com/shortcuts/icon_category_shoes.png">
-            신발</a>
+        <hr style="border-width:1px 0 0 0; border-style:solid; border-color:#bbb; margin-top: 12px;">
+        <div class="spons">
+            <p>회원님을 위한 추천 상품</p>
+            <p>sponsored</p>
         </div>
-        <div>
-            <a href="#">
-            <img src="https://img.a-bly.com/shortcuts/icon_category_top.png">
-            의류</a>
+        <div class="products">
+            <div>
+                <div><a href="#"><img src="https://d3ha2047wt6x28.cloudfront.net/5wfqhD-j8rg/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzU0ZmMyMTU0MzQ5YmJlODA5NDcxMzEwMGRiYzhkMTI1LmdpZg"></a></div>
+                <div class="price">
+                    <p class="sale per">38%</p>
+                    <p class="sale price">17,900</p>
+                </div>
+                <p>뮤즈핏</p>
+                <p>-5도 쿨핏ㅇ여름버전ㅇ사이드핀턱</p>
+                <!-- <p>15,133개 구매중</p> -->
+            </div>
+            <div>
+                <div><a href="#"><img src="https://d3ha2047wt6x28.cloudfront.net/bP2BQ_7STPI/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzdkZjhiZmE2MDg1MmUzZGI0YTRlNWU0MDY1NDZjMzhmLmdpZg"></a></div>
+                <div class="price">
+                    <p class="sale per">20%</p>
+                    <p class="sale price">15,500</p>
+                </div>
+                <p>블리즈</p>
+                <p>[청량색감ㅇ/널널여리핏]시어서커</p>
+                <!-- <p>15,133개 구매중</p> -->
+            </div>
+            <div>
+                <div><a href="#"><img src="https://d3ha2047wt6x28.cloudfront.net/vZ1C_OrCI3I/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzL2YyMzBiMGJlNWM0MzFlNDE1NjQyYWUxOTc1YmZlMzgxLmdpZg"></a></div>
+                <div class="price">
+                    <p class="sale per">32%</p>
+                    <p class="sale price">59,800</p>
+                </div>
+                <p>아디다스</p>
+                <p>[국내매장판] 아디다스 여성 3S</p>
+                <!-- <p>1,003개 구매중</p> -->
+            </div>
+            <div>
+                <div><a href="#"><img src="https://d3ha2047wt6x28.cloudfront.net/5wfqhD-j8rg/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzU0ZmMyMTU0MzQ5YmJlODA5NDcxMzEwMGRiYzhkMTI1LmdpZg"></a></div>
+                <div class="price">
+                    <p class="sale per">38%</p>
+                    <p class="sale price">17,900</p>
+                </div>
+                <p>뮤즈핏</p>
+                <p>-5도 쿨핏ㅇ여름버전ㅇ사이드핀턱</p>
+                <!-- <p>15,133개 구매중</p> -->
+            </div>
+            <div>
+                <div><a href="#"><img src="https://d3ha2047wt6x28.cloudfront.net/bP2BQ_7STPI/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzdkZjhiZmE2MDg1MmUzZGI0YTRlNWU0MDY1NDZjMzhmLmdpZg"></a></div>
+                <div class="price">
+                    <p class="sale per">20%</p>
+                    <p class="sale price">15,500</p>
+                </div>
+                <p>블리즈</p>
+                <p>[청량색감ㅇ/널널여리핏]시어서커</p>
+                <!-- <p>15,133개 구매중</p> -->
+            </div>
+            <div>
+                <div><a href="#"><img src="https://d3ha2047wt6x28.cloudfront.net/vZ1C_OrCI3I/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzL2YyMzBiMGJlNWM0MzFlNDE1NjQyYWUxOTc1YmZlMzgxLmdpZg"></a></div>
+                <div class="price">
+                    <p class="sale per">32%</p>
+                    <p class="sale price">59,800</p>
+                </div>
+                <p>아디다스</p>
+                <p>[국내매장판] 아디다스 여성 3S</p>
+                <!-- <p>1,003개 구매중</p> -->
+            </div>
         </div>
-        <div>
-            <a href="#">
-            <img src="https://img.a-bly.com/shortcuts/icon_category_phone.png">
-            디지털/핸드폰</a>
-        </div>
-        <div>
-            <a href="#">
-            <img src="https://img.a-bly.com/shortcuts/icon_category_jewelry.png">
-            주얼리</a>
-        </div>
-        <div>
-            <a href="#">
-            <img src="https://img.a-bly.com/shortcuts/icon_category_bag.png">
-            가방</a>
-        </div>
-        <div>
-            <a href="#">
-            <img src="https://img.a-bly.com/shortcuts/icon_category_accessory.png">
-            패션소품</a>
-        </div>
-        <div>
-            <a href="#">
-            <img src="https://img.a-bly.com/shortcut/shortcut_image_1644228120710012.png">
-            뷰티</a>
-        </div>
-        <div>
-            <a href="#">
-            <img src="https://img.a-bly.com/shortcuts/icon_category_bigsize.png">
-            빅사이즈</a>
-        </div>
-        <div>
-            <a href="#">
-            <img src="https://img.a-bly.com/shortcut/shortcut_image_1747908118295539.png">
-            라이프</a>
-        </div>
-    </div>
-    <hr style="border-width:1px 0 0 0; border-style:solid; border-color:#bbb; margin-top: 12px;">
-    <div class="spons">
-        <p>회원님을 위한 추천 상품</p>
-        <p>sponsored</p>
-    </div>
-    <div>
-        <div class="product"><a href="#"><img src="https://d3ha2047wt6x28.cloudfront.net/bP2BQ_7STPI/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzdkZjhiZmE2MDg1MmUzZGI0YTRlNWU0MDY1NDZjMzhmLmdpZg"></a></div>
-        <div>
-            <p class="sale per">38%</p>
-            <p class="sale price">17,900</p>
-        </div>
-        <p>뮤즈핏</p>
-        <p>-5도 쿨핏ㅇ여름버전ㅇ사이드핀턱</p>
-        
-    </div>
-
+    </main>
+    
+    
     <script>
         $(".slider").bxSlider({
             auto:true,
@@ -147,4 +233,13 @@
         });
     </script>
 </body>
+<footer>
+    <hr style="border-width:1px 0 0 0; border-style:solid; border-color:#bbb; margin-top: 12px;">
+    <div class="nav">
+        <a href="#"><i class="fa-solid fa-house"></i>홈</a>
+        <a href="#"><i class="fa-solid fa-bars"></i>전체보기</a>
+        <a href="#"><i class="fa-solid fa-magnifying-glass"></i>검색</a>
+        <a href="#"><i class="fa-solid fa-user"></i>마이페이지</a>
+    </div>
+</footer>
 </html>
