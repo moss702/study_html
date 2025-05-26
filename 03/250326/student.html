@@ -138,11 +138,27 @@
                 
                 //indet search
                 let idx = -1;
-                for(let i = 0; i < students.length; i++){
+                
+                // 레거시 for문
+                // for(let i = 0; i < students.length; i++){
+                //     if(students[i].no == no) {
+                //         idx = i;
+                //     }
+                // }
+
+                // for in 일반 객체 탐색
+                for(let i in students) { 
                     if(students[i].no == no) {
                         idx = i;
                     }
                 }
+
+                // for of 배열,리스트 탐색
+                // for (let i of students){ 
+                //     if (i.no == no) {
+                //         idx = i;
+                //     }
+                // }
 
                 // 배열 내에서 삭제하는 행동 따로
                 students.splice(idx, 1);
