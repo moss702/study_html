@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://i.namu.wiki/i/deWqXU2nRddyyQA65D82oNnDs9iACX47a7nOafBbIN_-Z0tUc4wSdR9NY_t5XeZXl2BbadKTnCiCv05XUZvtjD5SeTnaj2etFY6reh31CioEBE5FYNXr6XjqJRwvqjb9NmaGvI5OpSybWRMd_1FHUA.webp">
+    <hr>
+    <input><button>이미지 변환</button>
+    <script>
+        document.querySelector("button").addEventListener("click", function(){
+            const input = document.querySelector("input").value;
+            const img = document.querySelector("img")
+            img.src = input;
+            img.style.border = '1px solid';
+            // img.style["border-radius"] = '20px';
+            img.style.borderRadius = '20px';
+        });
+    </script>
+</body>
+</html>
