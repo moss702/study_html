@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달력</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        table {border-collapse: collapse; width: 100%; max-width: 1200px; margin: 0 auto;}
+        table, th, td {border: 1px solid black;}
+        table h2 {display: inline-block;}
+        table caption > * {margin: 16px 20px; vertical-align: top;}
+        table caption button {
+            border: 1px solid black; border-radius: 30%;
+            background: transparent; cursor: pointer;
+            width: 30px; height: 30px; line-height: 16px;
+            transition: all .3s; margin-top: 21px;
+        } 
+        table caption button:hover {color: rgb(245, 13, 13); box-shadow: 0 0 3px rgb(176, 176, 176), 2px 2px 5px #f1efef;}
+        th, td {height: 100px;}
+        td {vertical-align: top; padding: 16px;}
+        tr > *:first-child {color: rgb(237, 60, 60);}
+        tr > *:nth-child(7) {color: rgb(84, 84, 253);}
+    </style>
+    <script>
+        function drawCalendar(){
+            //날짜 가져오기
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = 5; //date.getMonth();
+            //마지막 날짜
+            const allMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            //윤년 계산
+            let lastDate = allMonths[month];
+            if(month === 1 && year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+                lastDate = 29;
+            }
+
+            //1일의 요일
+            date.setDate(1);
+            const firstDay = date.getDay();
+
+            //달력 그리기
+            let str = "<tr>";
+            for(let i = -firstDay + 1; i <= lastDate; i++){ //왜 35일까? 5줄까지 안정적으로 예쁘게 뽑으려고
+                str += `<td>${i <= lastDate && i > 0 ? i : ''}</td>`;
+                if(i != 0 && i % 7 == firstDay-1){
+                    str += "</tr><tr>"
+                }
+            }
+            str += "</tr>"
+            document.querySelector("table tbody").innerHTML = str;
+        }
+
+        window.onload = function(){
+            drawCalendar();
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <caption>
+            <button><i class="fa-solid fa-angles-left"></i></button>
+            <button><i class="fa-solid fa-angle-left"></i></button>
+            <h2>2025. 05</h2>
+            <button><i class="fa-solid fa-angle-right"></i></button>
+            <button><i class="fa-solid fa-angles-right"></i></button>
+        </caption>
+        <thead>
+            <tr>
+                <th>일</th>
+                <th>일</th>
+                <th>일</th>
+                <th>일</th>
+                <th>일</th>
+                <th>일</th>
+                <th>일</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
