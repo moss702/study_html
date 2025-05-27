@@ -44,7 +44,7 @@
             let str = "<tr>";
             for(let i = -firstDay + 1; i <= lastDate; i++){ //왜 35일까? 5줄까지 안정적으로 예쁘게 뽑으려고
                 str += `<td>${i <= lastDate && i > 0 ? i : ''}</td>`;
-                if(i != 0 && i % 7 == firstDay-1){
+                if(i % 7 == 0){
                     str += "</tr><tr>"
                 }
             }
