@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* box-sizing: border-box; 패딩 너비를 전체너비 안에 넣기 */
+        .join-frm {border: 1px solid rgb(244, 244, 244); width: 500px; margin: 0 auto; padding: 20px; box-sizing: border-box;}
+        .join-frm input {width: 95%; padding: 8px; }
+        .join-frm button {width: 455px; padding: 8px; }
+        .join-frm div {margin: 31px 0;}
+    </style>
+</head>
+<body>
+    <!-- 회원가입 유효성검사
+     아이디, 영소문자만 허용 
+     비밀번호, 8글자 이상
+     비밀번호 확인, 비밀번호와 같은값
+     이름,
+     이메일, 이메일유효성검증 정규식
+     -->
+    <form name="frm" class="join-frm">
+        <div>
+            <p><label for="id">아이디</label></p>
+            <p><input type="text" name="id" id="id"></p>
+            <p></p>
+        </div>
+        <div>
+            <p><label for="pw">비밀번호</label></p>
+            <p><input type="password" name="pw" id="pw"></p>
+            <p></p>
+        </div>
+        <div>
+            <p><label for="pwck">비밀번호 확인</label></p>
+            <p><input type="password" name="pwck" id="pwck"></p>
+            <p></p>
+        </div>
+        <div>
+            <p><label for="name">이름</label></p>
+            <p><input type="text" name="name" id="name"></p>
+            <p></p>
+        </div>
+        <div>
+            <p><label for="email">이메일</label></p>
+            <p><input type="text" name="email" id="email"></p>
+            <p></p>
+        </div>
+        <button>회원가입</button>
+    </form>
+
+</body>
+</html>

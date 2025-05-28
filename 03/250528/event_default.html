@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 기본 이벤트 -->
+    <!-- 태그 중 기본 이벤트가 존재하는 것 : a / form / button -->
+
+    <a href="https://naver.com">네이버</a>
+    
+    <textarea></textarea>
+    <div class="keyup"></div>
+    <div class="keydown"></div>
+    <div class="keypress"></div>
+
+
+    <script>
+        //클릭 이벤트 > 기본 이벤트 수행
+        document.querySelector("a").onclick = function() {
+            // alert("hi");
+            // event.preventDefault(); //클릭이벤트만. 기본이벤트방지(미수행)
+            // return false; // 위와 동일효과. *이벤트 전파도 하지않음.
+            return confirm(this.href + "로 이동하시겠습니까?"); //보통 리턴은 컨펌과 함께 쓴다.
+        }
+        const ta = document.querySelector("textarea");
+        ta.onkeyup = function(){
+            document.querySelector(".keyup").innerHTML = `key up : ${this.value.length}`
+        }
+        ta.onkeydown = function(){
+            document.querySelector(".keydown").innerHTML = `key down : ${this.value.length}`
+        }
+        ta.onkeypress = function(){
+            document.querySelector(".keypress").innerHTML = `key press : ${this.value.length}`
+        }
+    </script>
+    
+</body>
+</html>

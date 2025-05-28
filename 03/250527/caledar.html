@@ -26,8 +26,11 @@
         function drawCalendar(){
             //날짜 가져오기
             const date = new Date();
+            date.setMonth(2);
+            date.setFullYear(2025);
+
             const year = date.getFullYear();
-            const month = 5; //date.getMonth();
+            const month = date.getMonth();
             //마지막 날짜
             const allMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
             //윤년 계산
@@ -42,9 +45,17 @@
 
             //달력 그리기
             let str = "<tr>";
-            for(let i = -firstDay + 1; i <= lastDate; i++){ //왜 35일까? 5줄까지 안정적으로 예쁘게 뽑으려고
-                str += `<td>${i <= lastDate && i > 0 ? i : ''}</td>`;
-                if(i % 7 == 0){
+            let count = 1;
+            for(let i = 1- firstDay; i <= lastDate; i++){ 
+                //조건문 제거시 남은 칸도 그려준다.
+                
+                str += '<td>';
+                str += i <= lastDate && i > 0 ? i : '';
+                str += '</td>';
+                count++; //td의 갯수만 센다
+
+                if(lastDate <= i && (count-1) % 7 == 0) break;
+                if(i % 7 == (7 - firstDay) % 7){
                     str += "</tr><tr>"
                 }
             }
