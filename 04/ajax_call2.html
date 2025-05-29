@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>뉴스기사 가져오기</button>
+    <ul>
+        
+    </ul>
+
+    <script>
+        
+        document.querySelector("button").addEventListener("click", e =>{
+            const xhr = new XMLHttpRequest(); //xml 객체생성
+            xhr.open("GET", "https://www.chosun.com/arc/outboundfeeds/rss/?outputType=xml");
+            
+            xhr.onreadystatechange = () => {
+                if(xhr.status === 200 && xhr.readyState === 4){
+                    console.log(xhr.responseXML);
+                    // const data = xhr.responseXML;
+                    
+                    // let str = "";
+                    // // console.log(data.querySelectorAll("student")); //node리스트
+                    // data.querySelectorAll("student").forEach(s => {
+
+                    // // console.log((s.querySelector("no").innerHTML)); //학번 추출
+                    //  str += `<li>
+                    //     ${s.querySelector("no").innerHTML}
+                    //     ${s.querySelector("name").innerHTML}
+                    //     ${s.querySelector("score").innerHTML}
+                    //     </li>`;
+                    // }); //필요한 데이터 가져오기
+
+                    // document.querySelector("ul").innerHTML += str;
+
+                    
+                }
+            }
+            xhr.send();
+        });
+    </script>
+</body>
+</html>

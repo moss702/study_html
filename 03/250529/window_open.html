@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="click">클릭</button>
+    <input><button class="change">변경</button>
+    <button class="naver">naver</button>
+    <button onclick="history.back()">뒤로가기</button>
+    <button onclick="history.forward()">앞으로가기</button>
+    <!-- 근데 back, forward 너무 길어서 go(1) 등으로 사용. 양수면 forward, 음수면 back -->
+    <script>
+        let w = null;
+        document.querySelector("button").addEventListener("click", e => {
+            w = open("open_target.html", '', 'width=800, height=500');
+        });
+
+        document.querySelector(".change").addEventListener("click", e =>{
+            if(w){
+                w.document.querySelector("body").innerHTML += `<h1>${document.querySelector("input").value}</h2>`;
+            }
+        })
+
+        document.querySelector(".naver").addEventListener("click", e =>{
+            location.href = "https://www.naver.com";
+            location.reload();
+        })
+    </script>
+</body>
+</html>

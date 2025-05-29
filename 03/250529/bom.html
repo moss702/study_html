@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function myFunc() {
+            console.log("hello");
+            
+        }
+
+        //let window = {document : {}, location: {}. . .}
+        for(let i in window){
+            document.write(`<p>${i} :: ${window[i]}</p>`);
+        }
+
+        window.myFunc();
+
+        onload = function() {
+
+        }
+
+        var num = 10;
+        window.a = "abcd";
+        // window.alert(window.num);
+        // alert(a);
+        // delete window.a;
+    </script>
+
+
+    <button>클릭</button>
+    <script>
+        // alt + l , alt + o
+        document.querySelector("button").addEventListener("click", function(){
+            let w = window.open("../250528/validation.html", '', 'width=300, height=300');
+            console.log(w);
+    
+            const inter = setInterval(() => { //일정시간마다 함수 반복실행
+                w.moveBy(10,10)
+            }, 100);
+    
+            setTimeout(() => { //이 시간이 되면 딱 한번 수행
+                w.close();
+                clearInterval(inter);
+            }, 3000);
+        })
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        // $.noConflict(); 아래와 동일의미
+        jQuery.noConflict();
+        console.log($);
+
+        jQuery(function() {
+            jQuery("p").css("color","red");
+        });
+
+        //스코프 구분해서 $ 사용위치 제한
+        (function($) {
+            $(function(){
+                $("p").css("text-align", "center");
+            })
+        })(jQuery);
+        
+    </script>
+</head>
+<body>
+    <p>테스트 문자열</p>
+</body>
+</html>

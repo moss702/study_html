@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 5px;}
+        #m1 > p:last-child {height: 20px;}
+        span {display: inline-block; height: 20px;}
+        </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        $(function() {
+            $("#m1 > p:contains('html')").css("border", "4px solid red");
+            $("#m1 > p:empty").css("border", "4px solid orange"); //자식요소(노드포함)가 없는(비어있는거)
+            $("#m2 > span:parent").css("border", "4px solid yellow"); //자식요소가 있는(내가 부모인)
+            $("#m3 > section:has(article)").css("border", "4px solid green"); //article을 가진 section
+        })
+    </script>
+
+</head>
+<body>
+    <div id="m1">
+        <p>html, css, javascript</p>
+        <p>html5와 웹표준</p>
+        <p></p>
+    </div>
+    <div id="m2">
+        <span></span>
+        <span>내용1</span>
+    </div>
+    <div id="m3">
+        <section>
+            <article>내용2_1</article>
+        </section>
+        <section>
+            <div>
+                <article>내용2_2</article>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

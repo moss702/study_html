@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script> </script>
+</head>
+<body>
+    <p>1안녕하세요</p>
+    <p>2안녕하세요</p>
+    <p>3안녕하세요</p>
+    <p>4안녕하세요</p>
+    <script>
+        console.log($("p").text());
+        $("p")
+        .css('color', 'red')
+        .filter(":first-child") //(":lt(2)") [0],[1]
+        .css({textAlign: 'center'})
+        .click(function(){
+            alert($(this).text());
+        })
+
+        console.log($);
+        console.log(jQuery);
+        // $(string), $(object), $(function)
+        // select로 동작, jQuery로 랩핑된 객체로 반환 == jQuery 함수 사용가능
+        
+
+    </script>
+</body>
+</html>
