@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        $(function() {
+            $("input:text").css("background", "red");
+            $("input:password").css("background", "orange");
+            $(":button").css("background", "yellow");
+            $("input:checked + label").css("background", "green");
+            $("option:selected").css("background", "blue");
+            $("textarea:disabled").css("background", "pink");
+
+            console.log($("div").find("label").text());
+            
+            console.log($("div").find(function() {
+                return "label";
+            }).text());
+            //위 둘다 동일기능. js는 모든 선택자에 함수 사용가능.
+
+            $("div:eq(0)").add("div:eq(1)").css("border", "1px solid").end().css("background", "gray");
+        })
+    </script>
+</head>
+<body>
+    <div><input></div> <!-- input은 타입명시 안해도 기본속성이 text-->
+    <div><input type=""></div> <!-- 명시적으로 비워두면 타입 없는걸로 친다. 하지만 작동은 text로서 작동. -->
+    <div><input type="text"></div>
+    <div><input type="password"></div>
+    <div><button>확인</button></div>
+    <div><input type="checkbox" name="css" id="css" checked><label for="css">css</label></div>
+    <div>
+        <select>
+            <option>과목선택</option>
+            <option>javascript</option>
+            <option selected>jQuery</option>
+        </select>
+        <textarea cols="20" rows="5" disabled>javascript</textarea>
+    </div>
+</body>
+</html>

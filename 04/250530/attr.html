@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        $(function(){
+            $("a").each(function() {
+                console.log($(this).attr("href"), this.href); //getter 속성읽기
+                // $(this).attr("title", $(this).text()); //setter 속성부여
+                // $(this).attr("title", this.innerText); //위와 동일의미
+                $(this).attr("title", $(this).html()); //위와 동일의미
+
+                $(this).text("abcd").css("color","red");
+            });
+
+            console.log($("div").text());
+            console.log($("div").html());
+            
+            $("div:eq(1)").text("<h3>hello</h3>"); //text로만 동작
+            $("div:eq(2)").html("<h3>hello</h3>"); //html 태그로서 동작
+            $("div:eq(3)").html(function() { //함수로서 동작할 수 있다.
+                return "<mark>추가된텍스트</mark>"
+            });
+
+            $("div").html(function(i){ //함수의 첫번째 인자는 idx
+                return "<h2>" + i + "번째 div </h2>"
+            }); //모든 태그가 새로 씌워짐(덮어씀)
+        });
+    </script>
+
+</head>
+<body>
+    <p><a href="https://www.naver.com">네이버</a></p>
+    <p><a href="https://www.google.com">구글</a></p>
+    <p><a href="https://www.daum.net">다음</a></p>
+
+    <div>
+        <h1>안녕하세요, <span>heeelllo</span></h1>
+    </div>
+    <div>
+
+    </div>
+    <div>
+
+    </div>
+    <div>
+
+    </div>
+
+</body>
+</html>

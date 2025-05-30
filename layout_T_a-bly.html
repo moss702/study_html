@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+
     <style>
         body {margin: 0; }
         .clearfix::after {display: block; content: ''; clear: both;}
@@ -24,7 +27,39 @@
         @media screen and (min-width:1200px) {
             .item {width: 25%;}
         }
+
+        .layer-popup-wrapper {display: none; position: absolute; top:100px; right:100px; z-index: 50;}
+        .layer-popup-wrapper p {margin: 0; margin-top: -5px; background: #abc; padding: 8px;}
+        .layer-popup-wrapper p a {float: right; margin-right: 15px; text-decoration: none; color: #222;}
+
     </style>
+
+
+    <script>
+        //닫기 버튼 구현
+        $(function() {
+            $(".layer-popup-wrapper p a").click(function(){
+                event.preventDefault();
+                $(this).closest(".layer-popup-wrapper").hide();
+
+                //하루동안 열지않기
+                if($(this).prev().prop("checked")){
+                    localStorage.setItem("popupTimer", new Date().getTime());
+                    //체크
+                };
+            });
+            const timer = localStorage.getItem("popupTimer");
+            console.log(timer);
+            if((timer && new Date().getTime() - timer > 100 * 60 * 60 * 24) || !timer) {
+                 $(".layer-popup-wrapper").show();
+            }
+        });
+        
+        // 1000(ms) * 60(s) * 60(m) * 24(h)
+        // localStorage.setItem("a",10);
+        // console.log(localStorage.getItem("a"));
+        
+    </script>
 </head>
 <body>
     <header>
@@ -140,9 +175,15 @@
             <p>[꾸안꾸]보호본능 오버핏, 섬머데일리 빈티지 생지 데님</p>
         </div>
     </div>
+    <div class="layer-popup-wrapper">
+        <div>
+            <img src="https://image.yes24.com/momo/scmfiles/AdvertFiles/202505/2704503_250514050209.jpg" alt="레이어팝업">
+            <p>오늘은 그만보기 <input type="checkbox"> <a href="#">닫기</a></p>
+        </div>
+    </div>
     <script>
         window.addEventListener("scroll", function(e) {
-            console.log(window.scrollY);
+            // console.log(window.scrollY);
             const header = document.querySelector("header");
             if(window.scrollY > 100) {
                 header.classList.add("hidden")
@@ -150,7 +191,6 @@
             else {
                 header.classList.remove("hidden")
             }
-            
         }) 
     </script>
 </body>

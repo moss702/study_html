@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <style>
+        body {margin: 0;}
+        ul {margin: 0; padding: 0; background: #ddd;}
+        ul li {display: inline;}
+        ul li a {text-decoration: none; display: inline-block; width: 100px; padding: 16px; text-align: center; color:#222}
+        
+        body.dark {background-color: #222;}
+        .dark ul {background: #555;}
+        .dark ul li a {color:  #ddd;}
+        .dark ul li a:hover {background:  #777;}
+        
+    </style>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                //toggle을 이용한 테마변경
+                // $("body").toggleClass("dark"); 
+
+                //class메서드를 이용한 테마변경 *삼항연산
+                // $("body").is('.dark') ? $("body").removeClass("dark") : $("body").addClass("dark")
+
+                //class메서드를 이용한 테마변경 *삼항연산 +text 변경까지
+                $("body").hasClass('dark') ?  //이 클래스를 가지고 있는가?
+                // $("body").is('.dark') ?  //body에 클래스가 있는가? * 위와 비슷한 의미 
+                $("body").removeClass("dark").find("button").text('dark theme') : 
+                $("body").addClass("dark").find("button").text('origin theme');
+            });
+        });
+    </script>
+</head>
+<body class="">
+    <button>dark theme</button>
+    <nav>
+        <ul>
+            <li><a href="#">메뉴1</a></li>
+            <li><a href="#">메뉴2</a></li>
+            <li><a href="#">메뉴3</a></li>
+            <li><a href="#">메뉴4</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
