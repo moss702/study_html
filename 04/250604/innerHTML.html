@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 { padding: 30px; margin: 30px 0; border: 1px solid; }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        $(function(){
+            $("button:eq(0)").click(function(){
+                console.log($(this).text());
+                $("<h1>추가된 요소</h1>").append(function(){
+                    return $("<span>").html($("h1").length + 1);
+                }).appendTo("body");
+                
+                // $("<h1>추가된 요소 <span>1</span></h1>").appendTo("body");
+                
+                // $("body").html(function(i, cur){
+                //     return cur + "<h1>추가된 요소 <span>1</span></h1>";
+                // })
+            })
+            $("button:eq(1)").click(function(){
+                console.log($(this).text());
+
+                $("h1:last").remove();
+            })
+            $("button:eq(2)").click(function(){
+                console.log($(this).text());
+
+                $("body").empty();
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <button>추가</button>
+    <button>마지막 요소 제거</button>
+    <button>전체 제거</button>
+    <h1>추가된 요소 <span>1</span></h1>
+</body>
+
+</html>

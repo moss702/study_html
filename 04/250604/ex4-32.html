@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer {padding: 50px; width: 100px; height: 100px; background: orange;}
+        .outer div {width: 100px; height: 100px; background: red;}
+
+        .outer:hover {background: blue;}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        $(function() {
+            // over와 enter
+            // $(".outer").on("mouseover", function() {
+            //     $("<h1>").html("over").appendTo("body");
+            // }).on("mouseenter", function(){
+            //     $("<h1>").html("enter").appendTo("body");
+            // })
+
+            // enter와 leave (== hover)
+            $(".outer").hover(function(){
+                $("<h1>").html("enter").appendTo("body");
+            }, function(){
+                $("<h1>").html("leave").appendTo("body")
+            });
+
+            $("input").on("input", function(){
+                console.log($(this).val());
+            });
+
+            $("textarea").val("값 초기화")
+
+        });
+    </script>
+</head>
+<body>
+    <div class="outer">
+        <div></div>
+    </div>
+    <input>
+    <textarea>avcc</textarea>
+</body>
+</html>

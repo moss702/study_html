@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        $(function() {
+            $("h1").click(function(){
+                console.log($(this).text());
+            }).css("color", "red").click().click().click(); //이미 클릭한 상태로 처리
+
+            $("h1").on("click", function(){
+                console.log("official event bind");
+            });
+
+            $("h1").trigger("click");
+        })
+    </script>
+</head>
+<body>
+    <h1>난 H1</h1>
+</body>
+</html>

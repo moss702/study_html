@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        h1 {width: 300px; background: orange;}
+    </style>
+    <script>
+        $(function() {
+            // show, hide
+            $("div:eq(0) button:eq(0)").click(function() {
+                $("h1:eq(0)").show(3000);
+            });
+            $("div:eq(0) button:eq(1)").click(function() {
+                $("h1:eq(0)").hide("fast", function() {
+                    console.log("hide done!");
+                });
+            });
+            $("div:eq(0) button:eq(2)").click(function() {
+                $("h1:eq(0)").toggle();
+            });
+
+            // slide up, down
+            $("div:eq(1) button:eq(0)").click(function() {
+                $("h1:eq(1)").slideDown(3000);
+            });
+            $("div:eq(1) button:eq(1)").click(function() {
+                $("h1:eq(1)").slideUp("fast", function() {
+                    console.log("hide done!");
+                });
+            });
+            $("div:eq(1) button:eq(2)").click(function() {
+                $("h1:eq(1)").slideToggle();
+            });
+
+            // fade in, out
+            $("div:eq(2) button:eq(0)").click(function() {
+                $("h1:eq(2)").fadeIn(3000);
+            });
+            $("div:eq(2) button:eq(1)").click(function() {
+                $("h1:eq(2)").fadeOut("fast", function() {
+                    console.log("hide done!");
+                });
+            });
+            $("div:eq(2) button:eq(2)").click(function() {
+                $("h1:eq(2)").fadeToggle();
+            });
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <button>show</button>   
+        <button>hide</button>   
+        <button>toggle</button>   
+        <h1>첫번째 요소</h1>
+    </div>
+    <div>
+        <button>slidedown</button>   
+        <button>slideup</button>   
+        <button>slidetoggle</button>   
+        <h1>두번째 요소</h1>
+    </div>
+    <div>
+        <button>fadein</button>   
+        <button>fadeout</button>   
+        <button>fadetoggle</button>   
+        <h1>세번째 요소</h1>
+    </div>
+</body>
+</html>
