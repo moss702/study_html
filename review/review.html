@@ -14,6 +14,7 @@
     -->
     <style>
         .ws-pre-line {white-space: pre-line;}
+        .no-resize {resize: none;}
         .profile-img {background: url('images/profile.jpg') left 10px no-repeat; background-size: 32px;}
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -21,6 +22,7 @@
     <script src="https://momentjs.com/downloads/moment.js"></script> 
     <script>
         $(function() {
+            const modal = new bootstrap.Modal($("#reviewModal").get(0),{});
             function list() {
                 $.ajax({
                     url : 'http://localhost:8080/review_api/review/list',
@@ -37,7 +39,7 @@
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star-half-stroke"></i>
                                     <i class="fa-regular fa-star"></i>
-                                    <span class="ms-2">${r.rating}</span>
+                                    <span class="ms-2">${r.rating / 2}</span>
                                 </p>
                                 <p class="small text-secondary">
                                 <span class="me-3">${r.writer}</span>
@@ -47,7 +49,8 @@
                                 <p class="small ws-pre-line">
                                     ${r.content}
                                 </p>
-                                <button class="btn btn-danger btn-sm float-end">삭제</button>
+                                <button class="btn btn-danger btn-sm float-end btn-remove-submit">삭제</button>
+                                <button class="btn btn-warning btn-sm float-end mx-3 btn-modify-form">수정</button>
                             </li>
                             `;
                         }
@@ -57,6 +60,107 @@
                 
             }
             list();
+            // myModal.show();
+
+            // 글쓰기 폼 활성화 btn-write-form
+            $(".btn-write-form").click(function(){
+                console.log("글쓰기");
+                $("#reviewModal form").get(0).reset(); //폼안의 내용이 저장되는것 방지
+                $("#reviewModal .modal-footer button").show().eq(1).hide();
+                modal.show();
+            });
+
+            // 글쓰기 버튼 이벤트 btn-write-submit
+            $(".btn-write-submit").click(function(){
+                const result = confirm("등록하시겠습니까?")
+                if(!result) return;
+
+                const content = $("#content").val().trim();
+                const writer = $("#writer").val().trim();
+                const rating = $("#rating").val().trim() * 2;
+
+                const obj = {content, writer, rating, pno:1};
+                console.log(obj);
+                console.log("글쓰기 전송");
+
+                $.ajax({
+                    url : 'http://localhost:8080/review_api/review/',
+                    method : 'POST',
+                    data : JSON.stringify(obj),
+                    success : function(data) {
+                        if(data.result) {
+                            modal.hide();
+                            list();
+                        }
+                    }
+                })
+            });
+
+            // 글수정 폼 활성화 btn-modify-form
+            $(".reviews").on("click",".btn-modify-form", function(){
+                console.log("글수정 폼");
+                // console.log($(this).closest("li").data("rno"));
+                
+                const rno = $(this).closest("li").data("rno");
+                $.getJSON('http://localhost:8080/review_api/review/'+ rno, function(data){
+                    $("#reviewModal .modal-footer button").show().eq(0).hide();
+                    $("#content").val(data.content);
+                    $("#writer").val(data.writer);
+                    $("#rating").val(data.rating / 2);
+                    $("#reviewModal").data("rno", rno);
+                    console.log(data);
+                    
+                    modal.show();
+                })
+            })
+
+            // 글수정 버튼 이벤트 btn-modify-submit
+            $(".btn-modify-submit").click(function(){
+
+                const result = confirm("수정하시겠습니까?")
+                if(!result) return;
+
+                const rno = $("#reviewModal").data("rno");
+
+                const content = $("#content").val().trim();
+                const writer = $("#writer").val().trim();
+                const rating = $("#rating").val().trim() * 2;
+
+                const obj = {content, writer, rating, rno};
+
+                $.ajax({
+                    url : 'http://localhost:8080/review_api/review/' + rno,
+                    method : 'PUT',
+                    data : JSON.stringify(obj),
+                    success : function(data) {
+                        if(data.result) {
+                            list();
+                            modal.hide();
+                        }
+                    }
+                })
+                console.log("글수정 전송");      
+            });
+
+            // 글삭제 버튼 이벤트 btn-remove-submit
+            $(".reviews").on("click",".btn-remove-submit", function(){
+                
+                // return false; //기본이벤트 제어
+                const result = confirm("삭제하시겠습니까?")
+                if(!result) return;
+                
+                const rno = $(this).closest("li").data("rno");
+                $.ajax({
+                    url : 'http://localhost:8080/review_api/review/' + rno,
+                    method : 'DELETE', //소문자도 동작하지만 대문자 쓰는게 좋다
+                    success : function(data) {
+                        if(data.result) {
+                            list();
+                        }
+                    }
+                });
+                console.log("글삭제 전송");
+            })
         });
     </script>
 </head>
@@ -64,7 +168,7 @@
     <div class="container">
         <div class="py-3 clearfix">
             <h3 class="float-start">사용자 총 평점 <span class="small">4.2</span></h3>
-            <button class="btn btn-primary float-end">작성</button>
+            <button class="btn btn-primary float-end btn-write-form">작성</button>
         </div>
         <hr class="m-0">
         <ul class="list-group list-group-flush mt-3 reviews">
@@ -86,6 +190,7 @@
                     온라인 구매가 가능해서 넘 좋네여~~
                     콧물마루 넘 귀여워요!
                 </p>
+                <button class="btn btn-warning btn-sm float-end">수정</button>
                 <button class="btn btn-danger btn-sm float-end">삭제</button>
             </li>
             <li class="list-group-item">Second item</li>
@@ -93,5 +198,50 @@
             <li class="list-group-item">Fourth item</li>
         </ul>
     </div>
+    
+<!-- The Modal -->
+<div class="modal" id="reviewModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Review Form</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form>
+            <div class="mb-3 mt-3">
+                <label for="content" class="form-label"><i class="fa-solid fa-comment text-primary"></i> Content</label>
+                <textarea class="no-resize form-control" id="content" placeholder="Enter content" name="content" rows="5"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="writer" class="form-label"><i class="fa-solid fa-user text-primary"></i> Writer</label>
+                <input type="text" class="form-control" id="writer" placeholder="Enter writer" name="writer">
+            </div>
+            <div class="mb-3">
+                <label for="rating" class="form-label"><i class="fa-solid fa-star text-primary"></i> Rating</label>
+                <input type="number" class="form-control" id="rating" placeholder="Enter rating" name="rating" value="5" min="1" max="5">
+            </div>
+        <!-- <div class="form-check mb-3">
+            <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+            </label>
+        </div> -->
+        </form>
+    </div>
+    
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary btn-sm btn-write-submit">write</button>
+        <button type="submit" class="btn btn-warning btn-sm btn-modify-submit">Modify</button>
+        <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
 </body>
 </html>
