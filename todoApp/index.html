@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        function saveTodos() {
+            //li의 innerText값을 배열로 로컬스토리지에 저장
+            // const todolist = document.getElementById("todolist");
+            // console.log(todoList.children);
+            
+            // const lis = [...todoList.children];
+            // lis.map(li => li.innerText);
+
+            const arr = [... document.getElementById("todolist").getElementsByTagName("li")].map(li => li.innerText);
+            localStorage.setItem("todos", JSON.stringify(arr));            
+        };
+
+        function appendItem(txt) {
+            const todoList = document.getElementById("todolist");
+            const listItem = document.createElement("li");
+
+            listItem.className = 'd-flex list-group-item list-group-item-warning list-group-item-action align-items-center';
+            listItem.innerText = txt;
+
+            const xbtn = document.createElement("button");
+            xbtn.setAttribute("type", "button");
+            xbtn.className = 'btn btn-close btn-sm ms-auto';
+            xbtn.onclick = removeItem;
+            listItem.appendChild(xbtn);
+
+            todoList.appendChild(listItem);
+        };
+
+        function addItem(){
+            console.log("add item");
+            const item = document.getElementById("item");
+
+            appendItem(item.value);
+
+            item.value = '';
+            item.focus(); //할일추가 후 작성기록 공란 초기화
+
+            saveTodos();
+        }
+
+        function removeItem() {
+            // console.log("remove item");
+            // console.log(event.target);
+            // console.log(event.target.parentNode);
+            // event.target.parentNode.parentNode.removeChild(event.target.parentNode);
+            document.getElementById("todolist").removeChild(event.target.parentNode);
+            saveTodos();
+        }
+
+        window.onload = function() {
+            const items = localStorage.getItem("todos");
+            if(!items) return;
+            const arr = JSON.parse(items);
+            console.log(arr);
+            
+            for(let i of arr) {
+                appendItem(i);
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container bg-warning shadow mt-5 p-5 w-75">
+        <h2> My Todo App</h2>
+        <hr>
+        <form class="input-group" onsubmit="event.preventDefault(); addItem()">
+            <input type="text" id="item" placeholder="할일을 입력하세요" class="form-control" autofocus="on">
+            <button type="button" onclick="addItem()" class="btn btn-primary">할 일 추가</button>
+        </form>
+        <hr>
+        <ul id="todolist" class="list-group">
+        </ul>
+    </div>
+</body>
+</html>
