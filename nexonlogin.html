@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'NEXON Lv1 Gothic OTF';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .login-wrapper {
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all .3s;
+        }
+
+        .btn {
+            display: block;
+            background-color: black;
+            color: white;
+            font-family: 'NEXON Lv1 Gothic OTF';
+            font-weight: bold;
+            padding: 24px 0;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #07f;
+        }
+
+        .sub-wrapper {
+            margin-top: 3px;
+        }
+
+        .btn_sub {
+            display: inline-block;
+            width: 198px;
+            background: #444;
+        }
+
+        .btn_sub:last-child {
+            float: right;
+        }
+
+        .login-wrapper>div:nth-child(3) {
+            background: #ddd;
+            color: #999;
+            margin: 24px 0;
+            text-align: center;
+            padding: 16px 0;
+
+        }
+
+        .login-wrapper>div:nth-child(3) a {
+            background: url('https://rs.nxfs.nexon.com/home/images/main/set_login.png') no-repeat 0 -50px;
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            text-indent: -9999px;
+        }
+
+        .login-wrapper>div:nth-child(3) a:hover {
+            opacity: 50%;
+        }
+
+        .login-wrapper>div:nth-child(3) a:first-child {
+            margin-left: 12px;
+        }
+
+        .login-wrapper>div:nth-child(3) a+a {
+            background-position-y: -100px;
+        }
+
+        .login-wrapper>div:nth-child(3) a+a+a {
+            background-position-y: -150px;
+        }
+
+        .login-wrapper>div:nth-child(3) a+a+a+a {
+            background-position-y: -200px;
+        }
+
+        .login-wrapper>div:nth-child(4) {
+            margin-top: 12px;
+        }
+
+        .login-wrapper>div:nth-child(4) a {
+            color: #999;
+            margin: 0 12px;
+            font-size: 13px;
+        }
+
+        .login-wrapper>div:nth-child(4) a:last-child {
+            float: right;
+        }
+         .login-wrapper>div:nth-child(4) a:hover, .login-wrapper > a:nth-child(5):hover {
+            color: #07f;
+         }
+
+        .login-wrapper>a:nth-child(5) {
+            display: block;
+            background-color: #222;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            padding: 14px 0;
+            margin-top: 14px;
+            position: relative;
+        }
+
+        .login-wrapper>a:nth-child(5)::after {
+            display: block;
+            content: '';
+            position: absolute;
+            border: 8px solid transparent;
+            border-bottom-color: #222;
+            border-bottom-width: 15px;
+            right: 29px;
+            top: -20px;
+        }
+
+
+
+        /* .hide {
+            display: none;
+        } */
+
+        /* .login-wrapper>a:hover:nth-child(5) + .hide {
+            display: block;
+            background-color: #222;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            padding: 14px 0;
+            margin-top: 14px;
+            position: relative;
+        }
+        .login-wrapper>a:hover:nth-child(5) + .hide::after {
+            display: block; content: '';
+            position: absolute;
+            border: 8px solid transparent;
+            border-bottom-color: #222;
+            border-bottom-width: 15px;
+            right: 29px;
+            top: -20px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="login-wrapper">
+        <a class="btn major" href="#">NEXON ID 로그인</a>
+        <div class="sub-wrapper">
+            <a class="btn btn_sub" href="#">일회용로그인</a>
+            <a class="btn btn_sub" href="#">QR 로그인</a>
+        </div>
+        <div>
+            다른 계정 간편 로그인
+            <a href="">구글</a>
+            <a href="">페이스북</a>
+            <a href="">네이버</a>
+            <a href="">에플</a>
+        </div>
+        <div>
+            <a href="">넥슨 ID 찾기</a>
+            <a href="">비밀번호 찾기</a>
+            <a href="">회원가입</a>
+        </div>
+        <a href="#">지금 넥슨 회원가입하시고 40게의 넥슨 게임을 즐기세요!</a>
+    </div>
+</body>
+
+</html>
