@@ -39,7 +39,6 @@
     #btn-greet 클릭 시, input(#username)의 값으로
     #greeting 요소에 "안녕하세요, [이름]님!" 텍스트 출력
     ****************************************************/
-    
     // JS
     // document.querySelector("#btn-greet").addEventListener("click", function(){
     //     document.querySelector("#greeting").textContent = `안녕하세요, [${(document.querySelector("#username").value)}]님`;
@@ -50,7 +49,6 @@
         $("#greeting").text(`안녕하세요, [${($("#username").val())}]님`);
         console.log(($("#username").val()));
     });
-
 
     // dataset.price && data("price")
     /******************** JS 문제 2 ********************
@@ -149,9 +147,22 @@
     'highlight' 클래스를 toggle 하라.
     ****************************************************/
     document.querySelector("#item-list").addEventListener("click", function(event) {
+<<<<<<< HEAD
         // addClass("highlight"); >> toggle
         console.log(event.target.tagName);
+=======
+        if(event.target.tagName === "LI"){
+            event.target.classList.toggle("highlight");
+        }
+>>>>>>> 4b2148b0de9cd48cfbe82e2d4911cae2e9d39f43
     });
+
+    
+    /********  클릭한 항목 텍스트를 아래에 표시하기 
+     #item-list의 <li>를 클릭하면 클릭한 항목의 텍스트를 #greeting에 출력
+        "상품 A" 클릭 → 아래에 상품 A를 선택했습니다.  */
+
+
 
     /******************** jQuery 문제 4 ********************
     페이지 로드 후 2초 뒤 #page-title을 슬라이드 업(slideUp)
