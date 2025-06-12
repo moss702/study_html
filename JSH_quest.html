@@ -147,14 +147,11 @@
     'highlight' 클래스를 toggle 하라.
     ****************************************************/
     document.querySelector("#item-list").addEventListener("click", function(event) {
-<<<<<<< HEAD
         // addClass("highlight"); >> toggle
         console.log(event.target.tagName);
-=======
         if(event.target.tagName === "LI"){
             event.target.classList.toggle("highlight");
         }
->>>>>>> 4b2148b0de9cd48cfbe82e2d4911cae2e9d39f43
     });
 
     
