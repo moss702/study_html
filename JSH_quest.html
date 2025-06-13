@@ -148,7 +148,7 @@
     #item-list의 <li> 요소를 클릭하면 해당 항목에
     'highlight' 클래스를 toggle 하라.
     ****************************************************/
-    document.querySelector("#item-list").addEventListener("click", function(event) {
+    $("#item-list").on("click", function(event) {
         // addClass("highlight"); >> toggle
         $(event.target).toggleClass("highlight");
     });

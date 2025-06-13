@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.10.0/ckeditor.js" integrity="sha512-G3gBpAR3yYAoro9SLe2Ki94/3VBY12j9w+v+Sm/AP0e5LNWhOFG/pFLypvpx4+2+tcQfs3rxjPfxx87ABhtZRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <!-- header -->
@@ -22,9 +23,8 @@
     <nav>
         <ul class="container p-0">
             <li><a href="board?cno=1">갤러리</a></li>
-            <!-- <li><a href="board?cno=2">갤러리</a></li> -->
             <li><a href="board.html">자유게시판</a></li>
-            
+ 
             <li><a href="board?cno=3">Q&amp;A</a></li>
             <li><a href="board?cno=4">자료실</a></li>
         </ul>
@@ -33,38 +33,22 @@
     <div class="container p-0">
         <!-- content * 2단 혹은 3단일 경우는?-->
         <main>
-            <div class="clearfix py-0">
-                <a href="board_write.html" class="btn btn-secondary btn-sm float-end"><i class="fa-solid fa-pen"></i> 글쓰기</a>
+            <div class="small border-bottom border-3 border-secondary p-0 pb-2"><a href="#" class="small"><span class="text-primary">자유게시판</span> 카테고리</a></div>
+            <div class="small p-0 py-2">
+                <input placeholder="글 제목 입력" class="form-control" name="title" id="title">
             </div>
-            <div class="list-group">
-            <div class="list-group-item">
-                <div class="row text-center align-items-center small text-muted">
-                    <div class="col-1 small">글번호</div>
-                    <div class="col-1 small">카테고리</div>
-                    <div class="col text-start small">제목</div>
-                    <div class="col-1 small">날짜</div>
-                    <div class="col-1 small">조회수</div>
+            <div class="p-0 py-2 ps-1 border-top border-1 border-muted">
+                <textarea name="" id="editor1" class="form-control resize-none">
+                    
+                </textarea>
+            </div>
+            <div class="ps-0 pe-0">
+                <button class="btn btn-secondary btn-sm"><i class="fa-solid fa-list-ul"></i> 목록</button>
+                <div class="float-end">
+                    <button class="btn btn-outline-secondary btn-sm"><i class="fa-solid fa-pen"></i>  글 등록</button>
                 </div>
             </div>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">
-            <div class="row text-center align-items-center small text-muted">
-                <div class="col-1 small">00000</div>
-                <div class="col-1 small">자유</div>
-                <div class="col text-start fw-bold text-black">TEST TITLE : notice</div>
-                <div class="col-1 small">2025.06.13</div>
-                <div class="col-1 small">조회수</div>
-            </div>
-                <!-- BS5 그리드 : col들 전부 합쳐서 12가 되야 함. -->
-                <!-- fw : font wight -->
-            </a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">
-            <div class="row text-center align-items-center small text-muted">
-                <div class="col-1 small">00001</div>
-                <div class="col-1 small">자유</div>
-                <div class="col text-start text-black">TEST TITLE : normal <span class="small text-danger fw-bold">1</span></div>
-                <div class="col-1 small">2025.06.13</div>
-                <div class="col-1 small">조회수</div>
-            </div>
+
         </main>
     </div>
     <!-- footer -->
@@ -91,6 +75,13 @@
                 $(".arrow-area i").fadeOut(300);
             }
         });
+
+        window.onload = function() {
+            CKEDITOR.replace('editor1', {
+                height:400
+            })
+        };
+        
     </script>
 
 </body>
