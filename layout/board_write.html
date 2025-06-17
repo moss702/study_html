@@ -31,25 +31,29 @@
     </nav>
 
     <div class="container p-0">
-        <!-- content * 2단 혹은 3단일 경우는?-->
-        <main>
-            <div class="small border-bottom border-3 border-secondary p-0 pb-2"><a href="#" class="small"><span class="text-primary">자유게시판</span> 카테고리</a></div>
-            <div class="small p-0 py-2">
-                <input placeholder="글 제목 입력" class="form-control" name="title" id="title">
-            </div>
-            <div class="p-0 py-2 ps-1 border-top border-1 border-muted">
-                <textarea name="" id="editor1" class="form-control resize-none">
-                    
-                </textarea>
-            </div>
-            <div class="ps-0 pe-0">
-                <button class="btn btn-secondary btn-sm"><i class="fa-solid fa-list-ul"></i> 목록</button>
-                <div class="float-end">
-                    <button class="btn btn-outline-secondary btn-sm"><i class="fa-solid fa-pen"></i>  글 등록</button>
-                </div>
-            </div>
 
+        <main>
+            <form>
+                <div class="small border-bottom border-3 border-secondary p-0 pb-2"><a href="#" class="small"><span class="text-primary">자유게시판</span> 카테고리</a></div>
+                <div class="small p-0 py-2">
+                    <input placeholder="글 제목 입력" class="form-control" name="title" id="title">
+                </div>
+                <div class="p-0 py-2 ps-1 border-top border-1 border-muted">
+                    <textarea name="content" id="editor1" class="form-control resize-none">
+                        
+                    </textarea>
+                </div>
+                <div>
+                    <button class="btn btn-secondary btn-sm"><i class="fa-solid fa-list-ul"></i> 목록</button>
+                    <div class="float-end">
+                        <button class="btn btn-outline-secondary btn-sm"><i class="fa-solid fa-pen"></i>  글 등록</button>
+                    </div>
+                </div>
+                <input type="hidden" name="id" value="" />
+                <input type="hidden" name="cno" value="2" />
+            </form>
         </main>
+
     </div>
     <!-- footer -->
     <footer>
@@ -62,26 +66,11 @@
     </div>
 
     <script>
-        $(".slider").bxSlider({
-            auto:true,
-            mode:'horizontal'
-        });
-
-        $(window).scroll(function(e){
-            console.log(window.scrollY);
-            if(window.scrollY > 500){
-                $(".arrow-area i").fadeIn(200);
-            } else {
-                $(".arrow-area i").fadeOut(300);
-            }
-        });
-
-        window.onload = function() {
+        $(function() {
             CKEDITOR.replace('editor1', {
                 height:400
             })
-        };
-        
+        });        
     </script>
 
 </body>
